@@ -20,6 +20,21 @@ const useStore = create((set) => ({
       answer: "Yoda",
       category: "Star Wars",
     },
+    {
+      question: "What is the capital of France?",
+      answer: "Paris",
+      category: "no_category",
+    },
+    {
+      question: "What is the highest mountain in the world?",
+      answer: "Mount Everest",
+      category: "no_category",
+    },
+    {
+      question: "What is the chemical symbol for water?",
+      answer: "H2O",
+      category: "no_category",
+    },
   ],
   newCard: {
     question: "",

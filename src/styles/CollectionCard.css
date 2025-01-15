@@ -1,0 +1,63 @@
+.collection-card {
+  display: flex;
+  height: 150px;
+  border-radius: 0.25rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  gap: 1rem;
+  border: 1px solid transparent;
+  padding: 1rem;
+  background: #1c1c1c;
+  font-weight: 600;
+
+}
+
+.collection-card-question {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.collection-card-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  font-size: 14px;
+}
+
+.collection-card-action-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.collection-card-category {
+  color: #5e5e5e;
+  font-size: 14px;
+  max-width: 20ch; 
+  white-space: nowrap; 
+  overflow: hidden;  
+  text-overflow: ellipsis;
+}
+
+.delete-btn,
+.edit-btn {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  color: #5e5e5e;
+  font-size: 16px;
+}
+
+.delete-btn:hover,
+.edit-btn:hover {
+  color: white;
+  scale: 1.2;
+}
