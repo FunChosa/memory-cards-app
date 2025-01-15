@@ -21,16 +21,19 @@ const useStore = create((set) => ({
       category: "Star Wars",
     },
     {
+      id: "4",
       question: "What is the capital of France?",
       answer: "Paris",
       category: "no_category",
     },
     {
+      id: "5",
       question: "What is the highest mountain in the world?",
       answer: "Mount Everest",
       category: "no_category",
     },
     {
+      id: "6",
       question: "What is the chemical symbol for water?",
       answer: "H2O",
       category: "no_category",
@@ -48,7 +51,10 @@ const useStore = create((set) => ({
   jsonInput: "",
 
   addCard: (newCard) => set((state) => ({ cards: [...state.cards, newCard] })),
-
+  deleteCard: (cardId) =>
+    set((state) => ({
+      cards: state.cards.filter((card) => card.id !== cardId),
+    })),
   openModal: () => set({ isModalOpen: true }),
   closeModal: () => set({ isModalOpen: false }),
 
@@ -60,11 +66,13 @@ const useStore = create((set) => ({
   setNewCard: (newCard) => set({ newCard }),
   setIsFlipped: (newFlipped) => set({ isFlipped: newFlipped }),
   setJsonInput: (newJsonInput) => set({ jsonInput: newJsonInput }),
+  setEditableCard: (newCard) => set({ editableCard: newCard }),
 
   resetJsonInput: () => set({ jsonInput: "" }),
   resetNewCard: () =>
     set({ newCard: { question: "", answer: "", category: "no_category" } }),
   resetError: () => set({ error: null }),
+  resetEditableCard: () => set({ editableCard: null }),
 }));
 
 export default useStore;
