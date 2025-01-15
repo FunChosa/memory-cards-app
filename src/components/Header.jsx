@@ -1,8 +1,16 @@
-import React from "react";
-import "../styles/Header.css";
+import useStore from "../store";
 import { IoAdd } from "react-icons/io5";
+import { CiExport } from "react-icons/ci";
+import { LuFileJson2 } from "react-icons/lu";
 import { HiMiniArrowPath } from "react-icons/hi2";
-const Header = ({ openModal, openImportModal, handleExportCards }) => {
+import { handleExportCards } from "../functions";
+import "../styles/Header.css";
+
+const Header = () => {
+  const cards = useStore((state) => state.cards);
+  const openModal = useStore((state) => state.openModal);
+  const openImportModal = useStore((state) => state.openImportModal);
+
   return (
     <div className="header-container" id="header">
       <h2 className="header-title">
@@ -15,10 +23,13 @@ const Header = ({ openModal, openImportModal, handleExportCards }) => {
           Add Card
         </button>
         <button onClick={openImportModal}>
-          <IoAdd />
-          Import Cards
+          <LuFileJson2 />
+          Add via JSON
         </button>
-        <button onClick={handleExportCards}>Export Cards</button>
+        <button onClick={() => handleExportCards({ cards })}>
+          <CiExport />
+          Export Cards
+        </button>
       </div>
     </div>
   );

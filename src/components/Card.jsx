@@ -1,28 +1,17 @@
-import React, { useEffect, useState } from "react";
+import useStore from "../store";
+import { useEffect } from "react";
 import "../styles/Card.css";
-import { debounce } from "../functions";
-const Card = ({ question, answer, id, category }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
 
-  const handleFlip = () => {
-    setIsFlipped(!isFlipped);
-  };
+const Card = ({ question, answer, id, category }) => {
+  const isFlipped = useStore((state) => state.isFlipped);
+  const setIsFlipped = useStore((state) => state.setIsFlipped);
 
   useEffect(() => {
     setIsFlipped(false);
   }, [id]);
 
-  const handleFlipDebounced = debounce(handleFlip, 500);
-
-  window.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      handleFlipDebounced();
-    }
-  });
-
-  const handleDelete = (e) => {
-    e.stopPropagation();
-    deleteCard(id);
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
   };
 
   return (
@@ -32,9 +21,6 @@ const Card = ({ question, answer, id, category }) => {
       onClick={handleFlip}
     >
       <div className="category">{category && <p>#{category}</p>}</div>
-      {/* <div className="flipper">
-        <HiMiniArrowPath />
-      </div> */}
       <p>{isFlipped ? answer : question}</p>
     </div>
   );

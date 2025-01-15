@@ -5,8 +5,11 @@ import { FaAngleDown, FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { LuShuffle } from "react-icons/lu";
 import { debounce } from "../functions";
 import NavigationButton from "./NavigationButton";
+import useStore from "../store";
 
-const CardSlider = ({ cards }) => {
+const CardSlider = () => {
+  const cards = useStore((state) => state.cards);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCards, setCurrentCards] = useState(cards);
   const [categories, setCategories] = useState([
