@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import "../styles/CardSlider.css";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { FaAngleDown, FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { LuShuffle } from "react-icons/lu";
 import { debounce } from "../functions";
+import NavigationButton from "./NavigationButton";
 
 const CardSlider = ({ cards }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -58,7 +59,7 @@ const CardSlider = ({ cards }) => {
   });
 
   return (
-    <div className="card-slider">
+    <div className="card-slider" id="card-slider">
       {currentCards.length > 0 ? (
         <>
           <Card
@@ -108,6 +109,11 @@ const CardSlider = ({ cards }) => {
       ) : (
         <p>No cards</p>
       )}
+      <NavigationButton
+        title="View collection"
+        id="collection-cards"
+        icon={<FaAngleDown />}
+      />
     </div>
   );
 };

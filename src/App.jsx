@@ -4,6 +4,7 @@ import CardSlider from "./components/CardSlider";
 import AddCardModal from "./components/AddCardModal";
 import Modal from "react-modal";
 import "./styles/App.css";
+import CollectionCards from "./components/CollectionCards";
 
 const App = () => {
   const [cards, setCards] = useState([
@@ -14,16 +15,16 @@ const App = () => {
       category: "Star Wars",
     },
     {
-      question: "Question 2",
-      answer: "Answer 2",
+      question: "Who is the main villain in 'Avengers: Infinity War'?",
+      answer: "Thanos",
       id: "2",
-      category: "Category 2",
+      category: "Avengers",
     },
     {
-      question: "Question 3",
-      answer: "Answer 3",
+      question: "Who is the leader of the Jedi?",
+      answer: "Yoda",
       id: "3",
-      category: "Category 3",
+      category: "Star Wars",
     },
   ]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -49,16 +50,12 @@ const App = () => {
     <div className="App">
       <Header openModal={openModal} />
       <CardSlider cards={cards} />
+      <CollectionCards cards={cards} />
       <Modal
         isOpen={isModalOpen}
         className="modal"
         style={{
           overlay: { backgroundColor: "rgba(0, 0, 0, 0.7)" },
-          content: {
-            backgroundImage: "url(src/assets/pattern.jpg)",
-            backgroundSize: "contain",
-            backgroundBlendMode: "multiply",
-          },
         }}
         appElement={document.getElementById("root")}
         shouldCloseOnOverlayClick={false}

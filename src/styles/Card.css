@@ -40,3 +40,7 @@
   gap: 0.5rem;
   font-size: 16px;
 }
+
+textarea::placeholder {
+  font-family: "Poppins", sans-serif;
+}
