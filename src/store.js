@@ -44,7 +44,14 @@ const useStore = create((set) => ({
     answer: "",
     category: "no_category",
   },
-  isModalOpen: false,
+  editableCard: {
+    question: "",
+    answer: "",
+    category: "no_category",
+  },
+
+  isAddModalOpen: false,
+  isEditModalOpen: false,
   isImportModalOpen: false,
   isFlipped: false,
   error: null,
@@ -55,8 +62,18 @@ const useStore = create((set) => ({
     set((state) => ({
       cards: state.cards.filter((card) => card.id !== cardId),
     })),
-  openModal: () => set({ isModalOpen: true }),
-  closeModal: () => set({ isModalOpen: false }),
+  editCard: (editedCard) =>
+    set((state) => ({
+      cards: state.cards.map((card) =>
+        card.id === editedCard.id ? editedCard : card
+      ),
+    })),
+
+  openAddModal: () => set({ isAddModalOpen: true }),
+  closeAddModal: () => set({ isAddModalOpen: false }),
+
+  openEditModal: () => set({ isEditModalOpen: true }),
+  closeEditModal: () => set({ isEditModalOpen: false }),
 
   openImportModal: () => set({ isImportModalOpen: true }),
   closeImportModal: () => set({ isImportModalOpen: false }),
@@ -72,7 +89,14 @@ const useStore = create((set) => ({
   resetNewCard: () =>
     set({ newCard: { question: "", answer: "", category: "no_category" } }),
   resetError: () => set({ error: null }),
-  resetEditableCard: () => set({ editableCard: null }),
+  resetEditableCard: () =>
+    set({
+      editableCard: {
+        question: "",
+        answer: "",
+        category: "no_category",
+      },
+    }),
 }));
 
 export default useStore;

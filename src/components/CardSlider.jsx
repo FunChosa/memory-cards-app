@@ -95,7 +95,7 @@ const CardSlider = () => {
           </div>
         </>
       ) : (
-        <p>No cards</p>
+        <p>No cards found</p>
       )}
     </div>
   );

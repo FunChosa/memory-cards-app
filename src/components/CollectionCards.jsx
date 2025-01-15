@@ -10,13 +10,13 @@ import CollectionCard from "./CollectionCard";
 
 const CollectionCards = () => {
   const cards = useStore((state) => state.cards);
-  const openModal = useStore((state) => state.openModal);
+  const openAddModal = useStore((state) => state.openAddModal);
   const openImportModal = useStore((state) => state.openImportModal);
   return (
     <div className="collection-cards-container" id="collection-cards">
       <div className="collection-header">
         <div className="collection-buttons-container">
-          <button onClick={openModal}>
+          <button onClick={openAddModal}>
             <IoAdd />
             New Card
           </button>
