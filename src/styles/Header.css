@@ -8,6 +8,13 @@
   height: 70px;
 }
 
+.header-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .buttons-container {
   display: flex;
   flex-direction: row;

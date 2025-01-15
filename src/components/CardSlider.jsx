@@ -110,7 +110,7 @@ const CardSlider = ({ cards }) => {
         <p>No cards</p>
       )}
       <NavigationButton
-        title="View collection"
+        title="View card collection"
         id="collection-cards"
         icon={<FaAngleDown />}
       />

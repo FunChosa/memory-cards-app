@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Card.css";
-import { HiMiniArrowPath } from "react-icons/hi2";
 import { debounce } from "../functions";
 const Card = ({ question, answer, id, category }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -33,9 +32,9 @@ const Card = ({ question, answer, id, category }) => {
       onClick={handleFlip}
     >
       <div className="category">{category && <p>#{category}</p>}</div>
-      <div className="flipper">
+      {/* <div className="flipper">
         <HiMiniArrowPath />
-      </div>
+      </div> */}
       <p>{isFlipped ? answer : question}</p>
     </div>
   );
