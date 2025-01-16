@@ -56,6 +56,9 @@ const useStore = create((set) => ({
   isFlipped: false,
   error: null,
   jsonInput: "",
+  currentCardIndex: 0,
+  filterCategory: [],
+  categories: [],
 
   addCard: (newCard) => set((state) => ({ cards: [...state.cards, newCard] })),
   deleteCard: (cardId) =>
@@ -84,10 +87,19 @@ const useStore = create((set) => ({
   setIsFlipped: (newFlipped) => set({ isFlipped: newFlipped }),
   setJsonInput: (newJsonInput) => set({ jsonInput: newJsonInput }),
   setEditableCard: (newCard) => set({ editableCard: newCard }),
+  setCurrentCardIndex: (index) => set({ currentCardIndex: index }),
+  setFilterCategory: (newFilter) => set({ filterCategory: newFilter }),
+  setCategories: (newCategories) => set({ categories: newCategories }),
 
   resetJsonInput: () => set({ jsonInput: "" }),
   resetNewCard: () =>
-    set({ newCard: { question: "", answer: "", category: "no_category" } }),
+    set({
+      newCard: {
+        question: "",
+        answer: "",
+        category: "no_category",
+      },
+    }),
   resetError: () => set({ error: null }),
   resetEditableCard: () =>
     set({
