@@ -16,7 +16,7 @@ const CollectionCard = ({ card }) => {
       <p className="collection-card-top"></p>
       <p className="collection-card-question">{card.question}</p>
       <div className="collection-card-bottom">
-        <p className="collection-card-category">#{card.category}</p>
+        <p className="collection-card-category">{card.category}</p>
         <p className="collection-card-action-buttons">
           <CiEdit className="edit-btn" onClick={handleEditCard} />
           <MdDeleteOutline

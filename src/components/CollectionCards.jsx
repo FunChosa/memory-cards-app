@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import NavigationButton from "./NavigationButton";
 import { FaAngleUp } from "react-icons/fa6";
 import "../styles/CollectionCards.css";
@@ -12,6 +13,27 @@ const CollectionCards = () => {
   const cards = useStore((state) => state.cards);
   const openAddModal = useStore((state) => state.openAddModal);
   const openImportModal = useStore((state) => state.openImportModal);
+  const [searchValue, setSearchValue] = useState("");
+  const [filteredCards, setFilteredCards] = useState(cards);
+
+  useEffect(() => {
+    setFilteredCards(
+      cards.filter((card) => {
+        const matchedQuestion = card.question
+          .toLocaleLowerCase()
+          .includes(searchValue);
+        const matchedAnswer = card.answer
+          .toLocaleLowerCase()
+          .includes(searchValue);
+        const matchedCategory = card.category
+          .toLocaleLowerCase()
+          .includes(searchValue);
+
+        return matchedQuestion || matchedAnswer || matchedCategory;
+      })
+    );
+  }, [searchValue]);
+
   return (
     <div className="collection-cards-container" id="collection-cards">
       <div className="collection-header">
@@ -29,17 +51,30 @@ const CollectionCards = () => {
             Export JSON
           </button>
         </div>
-        <NavigationButton
-          title="Back to training"
-          id="header"
-          icon={<FaAngleUp />}
-        />
+        <div className="collection-search-container">
+          <input
+            type="search"
+            placeholder="Search cards..."
+            className="collection-search-input"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value.toLocaleLowerCase())}
+          />
+          <NavigationButton
+            title="Back to training"
+            id="header"
+            icon={<FaAngleUp />}
+          />
+        </div>
       </div>
-      {cards.length > 0 ? (
+      {cards.length > 0 && filteredCards.length > 0 ? (
         <div className="collection-cards-list">
-          {cards.map((card, index) => (
-            <CollectionCard key={index} card={card} />
-          ))}
+          {searchValue
+            ? filteredCards.map((card, index) => (
+                <CollectionCard key={index} card={card} />
+              ))
+            : cards.map((card, index) => (
+                <CollectionCard key={index} card={card} />
+              ))}
         </div>
       ) : (
         <p>No cards found</p>
