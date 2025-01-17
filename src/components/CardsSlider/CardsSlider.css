@@ -1,0 +1,123 @@
+.card-slider {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card-slider-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-slider-navigation-panel {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+
+.card-slider-current-index {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-slider-settings-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-direction: row;
+  width: 70%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+.card-slider-active-filter {
+  background-color: #172554;
+}
+
+.card-slider-header-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 0.5px solid rgba(211, 211, 211, 0.05);
+  height: 70px;
+}
+
+.card-slider-header-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #1c1c1c;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--accent);
+}
+
+.card-container {
+  width: 70%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  font-size: 20px;
+  text-align: center;
+}
+
+.card-content {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+}
+
+.card-category {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--text-primary);
+  opacity: 0.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 16px;
+}

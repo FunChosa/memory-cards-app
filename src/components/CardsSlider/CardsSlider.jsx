@@ -1,11 +1,15 @@
+import useStore from "../../store";
 import React, { useState, useEffect } from "react";
-import useStore from "../store";
-import Card from "./Card";
+import SliderCard from "./SliderCard";
+import NavigationButton from "../utils/NavigationButton";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { LuShuffle } from "react-icons/lu";
-import "../styles/CardSlider.css";
+import { FaAngleDown } from "react-icons/fa6";
+import { HiMiniArrowPath } from "react-icons/hi2";
+import Button from "../utils/Button";
+import "./CardsSlider.css";
 
-const CardSlider = () => {
+const CardsSlider = () => {
   const cards = useStore((state) => state.cards);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,16 +50,26 @@ const CardSlider = () => {
   };
 
   return (
-    <div className="card-slider" id="card-slider">
+    <div className="card-slider-container" id="cards-slider">
+      <div className="card-slider-header-container">
+        <h2 className="card-slider-header-title">
+          <HiMiniArrowPath />
+          Memory Cards
+        </h2>
+        <NavigationButton
+          title="View card collection"
+          to="cards-collection"
+          icon={<FaAngleDown />}
+        />
+      </div>
       {currentCards.length > 0 ? (
-        <>
-          <div className="settings">
-            <button onClick={handleShuffle}>
-              <LuShuffle />
-            </button>
+        <div className="card-slider">
+          <div className="card-slider-settings-container">
+            <Button icon={<LuShuffle />} onClick={handleShuffle} />
             {categories.map((category) => (
-              <button
+              <Button
                 key={category}
+                title={"#" + category}
                 onClick={() =>
                   setFilterCategory(
                     filterCategory.includes(category)
@@ -63,30 +77,28 @@ const CardSlider = () => {
                       : [...filterCategory, category]
                   )
                 }
-                className={filterCategory.includes(category) ? "active" : ""}
-              >
-                #{category}
-              </button>
+                className={
+                  filterCategory.includes(category)
+                    ? "card-slider-active-filter"
+                    : ""
+                }
+              />
             ))}
           </div>
-          <Card
+          <SliderCard
             question={currentCards[currentIndex].question}
             answer={currentCards[currentIndex].answer}
             id={currentCards[currentIndex].id}
             category={currentCards[currentIndex].category}
           />
-          <div className="buttons-container">
-            <button onClick={handlePrevious}>
-              <FaAngleLeft />
-            </button>
-            <p className="current-index">
+          <div className="card-slider-navigation-panel">
+            <Button icon={<FaAngleLeft />} onClick={handlePrevious} />
+            <p className="card-slider-current-index">
               {currentIndex + 1}/{currentCards.length}
             </p>
-            <button onClick={handleNext}>
-              <FaAngleRight />
-            </button>
+            <Button icon={<FaAngleRight />} onClick={handleNext} />
           </div>
-        </>
+        </div>
       ) : (
         <p>No cards found</p>
       )}
@@ -94,4 +106,4 @@ const CardSlider = () => {
   );
 };
 
-export default CardSlider;
+export default CardsSlider;

@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
-import NavigationButton from "./NavigationButton";
+import NavigationButton from "../utils/NavigationButton";
 import { FaAngleUp } from "react-icons/fa6";
-import "../styles/CollectionCards.css";
 import { IoAdd } from "react-icons/io5";
 import { LuFileJson2 } from "react-icons/lu";
 import { CiExport } from "react-icons/ci";
-import { handleExportCards } from "../functions";
-import useStore from "../store";
+import { handleExportCards } from "../../functions";
+import useStore from "../../store";
 import CollectionCard from "./CollectionCard";
+import Button from "../utils/Button";
+import "./CardsCollection.css";
 
-const CollectionCards = () => {
+const CardsCollection = () => {
   const cards = useStore((state) => state.cards);
   const openAddModal = useStore((state) => state.openAddModal);
   const openImportModal = useStore((state) => state.openImportModal);
@@ -34,40 +35,42 @@ const CollectionCards = () => {
     );
   }, [searchValue]);
 
+  const exportCards = () => {
+    handleExportCards({ cards });
+  };
+
   return (
-    <div className="collection-cards-container" id="collection-cards">
-      <div className="collection-header">
-        <div className="collection-buttons-container">
-          <button onClick={openAddModal}>
-            <IoAdd />
-            New Card
-          </button>
-          <button onClick={openImportModal}>
-            <LuFileJson2 />
-            Add via JSON
-          </button>
-          <button onClick={() => handleExportCards({ cards })}>
-            <CiExport />
-            Export JSON
-          </button>
+    <div className="collection-container" id="cards-collection">
+      <div className="collection-header-container">
+        <div className="collection-header-left-container">
+          <Button title="New Card" icon={<IoAdd />} onClick={openAddModal} />
+          <Button
+            title="Add via JSON"
+            icon={<LuFileJson2 />}
+            onClick={openImportModal}
+          />
+          <Button
+            title="Export JSON"
+            icon={<CiExport />}
+            onClick={exportCards}
+          />
         </div>
-        <div className="collection-search-container">
+        <div className="collection-header-right-container">
           <input
             type="search"
             placeholder="Search cards..."
-            className="collection-search-input"
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value.toLocaleLowerCase())}
           />
           <NavigationButton
             title="Back to training"
-            id="header"
+            to="cards-slider"
             icon={<FaAngleUp />}
           />
         </div>
       </div>
       {cards.length > 0 && filteredCards.length > 0 ? (
-        <div className="collection-cards-list">
+        <div className="collection-list">
           {searchValue
             ? filteredCards.map((card, index) => (
                 <CollectionCard key={index} card={card} />
@@ -83,4 +86,4 @@ const CollectionCards = () => {
   );
 };
 
-export default CollectionCards;
+export default CardsCollection;

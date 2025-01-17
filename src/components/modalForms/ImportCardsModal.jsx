@@ -1,12 +1,17 @@
-import useStore from "../store";
-import { validateAndPrepareCards } from "../functions";
+import useStore from "../../store";
+import { validateAndPrepareCards } from "../../functions";
 import Modal from "react-modal";
-import "../styles/ImportCardsModal.css";
+import { IoMdClose } from "react-icons/io";
+import "./modalForm.css";
 
 const ImportCardsModal = () => {
   const jsonInput = useStore((state) => state.jsonInput);
   const setJsonInput = useStore((state) => state.setJsonInput);
   const resetJsonInput = useStore((state) => state.resetJsonInput);
+
+  const error = useStore((state) => state.error);
+  const setError = useStore((state) => state.setError);
+  const resetError = useStore((state) => state.resetError);
 
   const isImportModalOpen = useStore((state) => state.isImportModalOpen);
 
@@ -14,16 +19,21 @@ const ImportCardsModal = () => {
   const closeImportModal = useStore((state) => state.closeImportModal);
   const setCards = useStore((state) => state.setCards);
 
+  const handleClose = () => {
+    resetJsonInput();
+    closeImportModal();
+    resetError();
+  };
+
   const handleImport = () => {
     try {
       const uploadedCards = JSON.parse(jsonInput);
       const validatedCards = validateAndPrepareCards(uploadedCards);
       setCards([...cards, ...validatedCards]);
-      resetJsonInput();
-      closeImportModal();
+      handleClose();
     } catch (err) {
       console.error("Invalid JSON format:", err);
-      alert("Invalid JSON. Please check format and try again.");
+      setError("Invalid JSON. Please check format and try again.");
     }
   };
 
@@ -42,46 +52,27 @@ const ImportCardsModal = () => {
   return (
     <Modal
       isOpen={isImportModalOpen}
-      className="modal"
+      className="modal-container"
       style={{
         overlay: { backgroundColor: "rgba(0, 0, 0, 0.7)" },
       }}
       appElement={document.getElementById("root")}
       shouldCloseOnOverlayClick={false}
     >
-      <div className="modal">
-        <div className="modal-content">
-          <h2>Import Cards</h2>
-          <textarea
-            value={jsonInput}
-            onChange={(e) => setJsonInput(e.target.value)}
-            placeholder={placeholderText}
-            rows={20}
-            style={{ width: "90%" }}
-          />
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginTop: "10px",
-              gap: "10px",
-              width: "100px",
-            }}
-          >
-            <button className="button" onClick={handleImport}>
-              Import
-            </button>
-            <button
-              className="button"
-              onClick={() => {
-                resetJsonInput();
-                closeImportModal();
-              }}
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
+      <div className="modal-card">
+        <IoMdClose onClick={handleClose} className="modal-close-btn" />
+        <h2>Import Cards</h2>
+        <textarea
+          value={jsonInput}
+          onChange={(e) => setJsonInput(e.target.value)}
+          className="modal-json-input"
+          placeholder={placeholderText}
+          rows={15}
+        />
+        {error && <p className="modal-error-msg">{error}</p>}
+        <button className="modal-save-btn" onClick={handleImport}>
+          Save
+        </button>
       </div>
     </Modal>
   );

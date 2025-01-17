@@ -1,13 +1,13 @@
-import "../styles/NavigationButton.css";
+import "./NavigationButton.css";
 
-const NavigationButton = ({ title, id, icon }) => {
+const NavigationButton = ({ title, to, icon }) => {
   return (
     <a
-      href={id}
+      href={to}
       className="navigation-button"
       onClick={(e) => {
         e.preventDefault();
-        document.getElementById(id).scrollIntoView({
+        document.getElementById(to).scrollIntoView({
           behavior: "smooth",
         });
       }}

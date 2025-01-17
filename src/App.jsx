@@ -1,10 +1,8 @@
-import Header from "./components/Header";
-import CardSlider from "./components/CardSlider";
-import AddCardModal from "./components/AddCardModal";
-import EditCardModal from "./components/EditCardModal";
-import CollectionCards from "./components/CollectionCards";
-import ImportCardsModal from "./components/ImportCardsModal";
-import "./styles/App.css";
+import CardsSlider from "./components/CardsSlider/CardsSlider";
+import AddCardModal from "./components/modalForms/AddCardModal";
+import EditCardModal from "./components/modalForms/EditCardModal";
+import CardsCollection from "./components/CardsCollection/CardsCollection";
+import ImportCardsModal from "./components/modalForms/ImportCardsModal";
 
 const App = () => {
   return (
@@ -13,9 +11,8 @@ const App = () => {
       <EditCardModal />
       <ImportCardsModal />
 
-      <Header />
-      <CardSlider />
-      <CollectionCards />
+      <CardsSlider />
+      <CardsCollection />
     </div>
   );
 };

@@ -1,7 +1,8 @@
-import useStore from "../store";
+import useStore from "../../store";
 import { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Modal from "react-modal";
+import "./modalForm.css";
 
 const EditCardModal = () => {
   const isEditModalOpen = useStore((state) => state.isEditModalOpen);
@@ -18,12 +19,6 @@ const EditCardModal = () => {
   const [question, setQuestion] = useState(editableCard.question);
   const [answer, setAnswer] = useState(editableCard.answer);
   const [category, setCategory] = useState(editableCard.category);
-
-  useEffect(() => {
-    setQuestion(editableCard.question);
-    setAnswer(editableCard.answer);
-    setCategory(editableCard.category);
-  }, [editableCard]);
 
   const handleQuestionChange = (event) => {
     setQuestion(event.target.value);
@@ -45,17 +40,17 @@ const EditCardModal = () => {
 
   const submitCard = () => {
     if (!question.trim() && !answer.trim()) {
-      setError("Both fields are required");
+      setError("Both fields are required!");
       return;
     }
 
     if (!question.trim()) {
-      setError("Question cannot be empty or whitespace");
+      setError("Question cannot be empty!");
       return;
     }
 
     if (!answer.trim()) {
-      setError("Answer cannot be empty or whitespace");
+      setError("Answer cannot be empty!");
       return;
     }
 
@@ -71,10 +66,16 @@ const EditCardModal = () => {
     closeEditModal();
   };
 
+  useEffect(() => {
+    setQuestion(editableCard.question);
+    setAnswer(editableCard.answer);
+    setCategory(editableCard.category);
+  }, [editableCard]);
+
   return (
     <Modal
       isOpen={isEditModalOpen}
-      className="modal"
+      className="modal-container"
       style={{
         overlay: { backgroundColor: "rgba(0, 0, 0, 0.7)" },
       }}
@@ -82,13 +83,13 @@ const EditCardModal = () => {
       shouldCloseOnOverlayClick={false}
     >
       <div className="modal-card">
-        <IoMdClose onClick={handleCancel} className="closeModalBtn" />
+        <IoMdClose onClick={handleCancel} className="modal-close-btn" />
         <h2>Edit card</h2>
         <p>Question:</p>
         <textarea
           type="text"
-          placeholder="Enter Question..."
-          className="questionInput"
+          placeholder="2+2"
+          className="modal-question-input"
           onChange={handleQuestionChange}
           value={question}
           required
@@ -98,8 +99,8 @@ const EditCardModal = () => {
         <p>Answer:</p>
         <textarea
           type="text"
-          placeholder="Enter Answer..."
-          className="answerInput"
+          placeholder="Fish"
+          className="modal-answer-input"
           onChange={handleAnswerChange}
           value={answer}
           required
@@ -108,13 +109,13 @@ const EditCardModal = () => {
         <p>Category:</p>
         <input
           type="text"
-          placeholder="Enter Category..."
-          className="answerInput"
+          placeholder="Math"
+          className="modal-category-input"
           onChange={handleCategoryChange}
           value={category}
         />
-        {error && <p className="error">{error}</p>}
-        <button onClick={submitCard} className="saveBtn">
+        {error && <p className="modal-error-msg">{error}</p>}
+        <button onClick={submitCard} className="modal-save-btn">
           Save
         </button>
       </div>
