@@ -18,12 +18,18 @@
   gap: 1rem;
 }
 
+.modal-btn-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
 .modal-save-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  padding: 0.5rem 2rem;
+  width: fit-content;
+  padding: 1rem;
   border: none;
   border-radius: 5px;
   background-color: #ffffff;
@@ -31,11 +37,32 @@
   cursor: pointer;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
+  height: 36px;
 }
 
 .modal-save-btn:hover {
   background-color: #ffffff;
   color: var(--text-error);
+}
+
+.modal-delete-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #1c1c1c;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  height: 36px;
+}
+
+.modal-delete-btn:hover {
+  background-color: #ae0202;
+  color: #000;
 }
 
 .modal-close-btn {

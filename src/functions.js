@@ -49,6 +49,8 @@ export const handleExportCards = (cards) => {
 };
 
 export const categoryPrefix = (category) => {
+  if (!category) return "#no_category";
+
   if (category.length > 0 && category[0] !== "#") {
     return "#" + category;
   } else {

@@ -88,7 +88,7 @@ input[type="search"]::placeholder {
 
 input[type="search"]:focus {
   outline: none;
-  border: 0.5px solid rgb(3, 166, 231);
+  border: 0.5px solid var(--hover-card-collection);
 }
 
 .collection-card {
@@ -105,6 +105,12 @@ input[type="search"]:focus {
   background-color: var(--primary);
   font-weight: 600;
   position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.collection-card:hover {
+  background-color: var(--hover-card-collection);
 }
 
 .collection-card-question {

@@ -8,6 +8,7 @@ import { CiExport } from "react-icons/ci";
 import { handleExportCards } from "../../functions";
 import useStore from "../../store";
 import CollectionCard from "./CollectionCard";
+import NoData from "../utils/NoData";
 import Button from "../utils/Button";
 import "./CardsCollection.css";
 
@@ -125,7 +126,7 @@ const CardsCollection = () => {
               ))}
         </div>
       ) : (
-        <p>No cards found</p>
+        <NoData />
       )}
     </div>
   );

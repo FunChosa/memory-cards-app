@@ -9,6 +9,7 @@ import { HiMiniArrowPath } from "react-icons/hi2";
 import { CiLight, CiDark } from "react-icons/ci";
 import Button from "../utils/Button";
 import "./CardsSlider.css";
+import NoData from "../utils/NoData";
 
 const CardsSlider = () => {
   const cards = useStore((state) => state.cards);
@@ -123,7 +124,7 @@ const CardsSlider = () => {
           </div>
         </div>
       ) : (
-        <p>No cards found</p>
+        <NoData />
       )}
     </div>
   );

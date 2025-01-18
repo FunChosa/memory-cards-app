@@ -10,6 +10,7 @@
   --modal-bg: rgb(3 166 231 / 25%);
   --slider-bg: #000;
   --overlay-bg: rgba(0, 0, 0, 0.7);
+  --hover-card-collection: #000;
 }
 
 [data-theme="light"] {
@@ -22,6 +23,7 @@
   --modal-bg: rgba(51, 115, 157, 0.388);
   --slider-bg: #fff;
   --overlay-bg: rgba(0, 0, 0, 0.3);
+  --hover-card-collection: #91fdff;
 }
 
 * {

@@ -23,7 +23,7 @@ const SliderCard = ({ question, answer, id, category }) => {
       onClick={handleFlip}
     >
       <p className="card-content">{isFlipped ? answer : question}</p>
-      <p className="card-category">{"#" + category}</p>
+      <p className="card-category">{category}</p>
     </div>
   );
 };

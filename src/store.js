@@ -4,6 +4,7 @@ const EMPTY_CARD = {
   question: "",
   answer: "",
   category: "#no_category",
+  id: "",
 };
 
 const useStore = create((set) => ({

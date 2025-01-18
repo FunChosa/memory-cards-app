@@ -1,6 +1,7 @@
 import useStore from "../../store";
 import { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import Button from "../utils/Button";
 import { categoryPrefix } from "../../functions";
 import Modal from "react-modal";
 import "./modalForm.css";
@@ -16,6 +17,7 @@ const EditCardModal = () => {
 
   const editableCard = useStore((state) => state.editableCard);
   const resetEditableCard = useStore((state) => state.resetEditableCard);
+  const deleteCard = useStore((state) => state.deleteCard);
 
   const [question, setQuestion] = useState(editableCard.question);
   const [answer, setAnswer] = useState(editableCard.answer);
@@ -34,6 +36,14 @@ const EditCardModal = () => {
   };
 
   const handleCancel = () => {
+    resetEditableCard();
+    resetError();
+    closeEditModal();
+  };
+
+  const handleDeleteCard = () => {
+    deleteCard(editableCard.id);
+
     resetEditableCard();
     resetError();
     closeEditModal();
@@ -116,9 +126,18 @@ const EditCardModal = () => {
           value={category}
         />
         {error && <p className="modal-error-msg">{error}</p>}
-        <button onClick={submitCard} className="modal-save-btn">
-          Save
-        </button>
+        <div className="modal-btn-container">
+          <Button
+            title="Save"
+            onClick={submitCard}
+            className="modal-save-btn"
+          />
+          <Button
+            title="Delete card"
+            onClick={handleDeleteCard}
+            className="modal-delete-btn"
+          />
+        </div>
       </div>
     </Modal>
   );
