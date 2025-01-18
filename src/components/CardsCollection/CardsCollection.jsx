@@ -15,10 +15,10 @@ const CardsCollection = () => {
   const cards = useStore((state) => state.cards);
   const openAddModal = useStore((state) => state.openAddModal);
   const openImportModal = useStore((state) => state.openImportModal);
-  const deletedCards = useStore((state) => state.deletedCards);
+  const checkedCards = useStore((state) => state.checkedCards);
   const deleteCard = useStore((state) => state.deleteCard);
-  const resetDeletedCards = useStore((state) => state.resetDeletedCards);
-  const setDeletedCards = useStore((state) => state.setDeletedCards);
+  const resetСheckedCards = useStore((state) => state.resetСheckedCards);
+  const setСheckedCards = useStore((state) => state.setСheckedCards);
   const [searchValue, setSearchValue] = useState("");
   const [filteredCards, setFilteredCards] = useState(cards);
 
@@ -41,23 +41,26 @@ const CardsCollection = () => {
   }, [searchValue]);
 
   const exportCards = () => {
-    handleExportCards({ cards });
+    const cardsForExport = cards.filter((card) =>
+      checkedCards.includes(card.id)
+    );
+    handleExportCards(cardsForExport);
   };
 
   const handleBulkDelete = () => {
-    if (deletedCards.length > 0) {
-      deletedCards.forEach((element) => {
+    if (checkedCards.length > 0) {
+      checkedCards.forEach((element) => {
         deleteCard(element);
       });
     }
-    resetDeletedCards();
+    resetСheckedCards();
   };
 
   const handleSelectAll = () => {
-    if (deletedCards.length === cards.length) {
-      resetDeletedCards();
+    if (checkedCards.length === cards.length) {
+      resetСheckedCards();
     } else {
-      setDeletedCards([...cards.map((card) => card.id)]);
+      setСheckedCards([...cards.map((card) => card.id)]);
     }
   };
 
@@ -81,13 +84,14 @@ const CardsCollection = () => {
             title="Export JSON"
             icon={<CiExport />}
             onClick={exportCards}
+            disabled={checkedCards.length === 0}
             className={"collection-action-btn"}
           />
           <Button
             icon={<MdDeleteOutline />}
             onClick={handleBulkDelete}
             className={"collection-action-btn"}
-            disabled={deletedCards.length === 0}
+            disabled={checkedCards.length === 0}
             title="Delete"
           />
           <Button

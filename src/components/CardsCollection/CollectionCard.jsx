@@ -6,10 +6,10 @@ import "./CardsCollection.css";
 
 const CollectionCard = ({ card }) => {
   const deleteCard = useStore((state) => state.deleteCard);
-  const deletedCards = useStore((state) => state.deletedCards);
+  const checkedCards = useStore((state) => state.checkedCards);
   const setEditableCard = useStore((state) => state.setEditableCard);
   const openEditModal = useStore((state) => state.openEditModal);
-  const setDeletedCards = useStore((state) => state.setDeletedCards);
+  const setСheckedCards = useStore((state) => state.setСheckedCards);
 
   const handleEditCard = () => {
     setEditableCard(card);
@@ -23,8 +23,8 @@ const CollectionCard = ({ card }) => {
   const handleCheckboxChange = (e) => {
     const { checked } = e.target;
     checked
-      ? setDeletedCards([...deletedCards, card.id])
-      : setDeletedCards(deletedCards.filter((id) => id !== card.id));
+      ? setСheckedCards([...checkedCards, card.id])
+      : setСheckedCards(checkedCards.filter((id) => id !== card.id));
   };
 
   return (
@@ -33,7 +33,7 @@ const CollectionCard = ({ card }) => {
         <input
           type="checkbox"
           className="collection-card-checkbox"
-          checked={deletedCards.includes(card.id)}
+          checked={checkedCards.includes(card.id)}
           onChange={handleCheckboxChange}
           title="Add to deleted cards"
         />

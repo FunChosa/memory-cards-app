@@ -34,7 +34,7 @@ export const validateAndPrepareCards = (newCards) => {
     });
 };
 
-export const handleExportCards = ({ cards }) => {
+export const handleExportCards = (cards) => {
   const json = JSON.stringify(cards, null, 2);
   const blob = new Blob([json], { type: "application/json" });
   const url = URL.createObjectURL(blob);
