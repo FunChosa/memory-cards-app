@@ -10,6 +10,8 @@ const EditCardModal = () => {
   const isEditModalOpen = useStore((state) => state.isEditModalOpen);
   const editCard = useStore((state) => state.editCard);
   const closeEditModal = useStore((state) => state.closeEditModal);
+  const checkedCards = useStore((state) => state.checkedCards);
+  const setСheckedCards = useStore((state) => state.setСheckedCards);
 
   const error = useStore((state) => state.error);
   const setError = useStore((state) => state.setError);
@@ -43,7 +45,7 @@ const EditCardModal = () => {
 
   const handleDeleteCard = () => {
     deleteCard(editableCard.id);
-
+    setСheckedCards(checkedCards.filter((id) => id !== editableCard.id));
     resetEditableCard();
     resetError();
     closeEditModal();

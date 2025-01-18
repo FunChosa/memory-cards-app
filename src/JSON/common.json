@@ -1,0 +1,74 @@
+[
+  {
+    "question": "What is the capital of France?",
+    "answer": "Paris",
+    "category": "#geography",
+    "id": "0"
+  },
+  {
+    "question": "What is 2 + 2?",
+    "answer": "4",
+    "category": "#math",
+    "id": "1"
+  },
+  {
+    "question": "What is the largest planet in our solar system?",
+    "answer": "Jupiter",
+    "category": "#astronomy",
+    "id": "2"
+  },
+  {
+    "question": "What is the chemical symbol for water?",
+    "answer": "H2O",
+    "category": "#chemistry",
+    "id": "3"
+  },
+  {
+    "question": "Who painted the Mona Lisa?",
+    "answer": "Leonardo da Vinci",
+    "category": "#art",
+    "id": "4"
+  },
+  {
+    "question": "What is the capital of Germany?",
+    "answer": "Berlin",
+    "category": "#geography",
+    "id": "5"
+  },
+  {
+    "question": "What is the square root of 16?",
+    "answer": "4",
+    "category": "#math",
+    "id": "6"
+  },
+  {
+    "question": "What is the first planet from the Sun?",
+    "answer": "Mercury",
+    "category": "#astronomy",
+    "id": "7"
+  },
+  {
+    "question": "What is the chemical symbol for salt?",
+    "answer": "NaCl",
+    "category": "#chemistry",
+    "id": "8"
+  },
+  {
+    "question": "Who wrote Romeo and Juliet?",
+    "answer": "William Shakespeare",
+    "category": "#literature",
+    "id": "9"
+  },
+  {
+    "question": "What is the meaning of life?",
+    "answer": "42",
+    "category": "#no_category",
+    "id": "10"
+  },
+  {
+    "question": "What color is the sky?",
+    "answer": "Blue",
+    "category": "#no_category",
+    "id": "11"
+  }
+]

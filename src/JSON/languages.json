@@ -1,0 +1,182 @@
+[
+  {
+    "question": "friend",
+    "answer": "друг",
+    "category": "#english",
+    "id": "english_0"
+  },
+  {
+    "question": "dog",
+    "answer": "собака",
+    "category": "#english",
+    "id": "english_1"
+  },
+  {
+    "question": "cat",
+    "answer": "кошка",
+    "category": "#english",
+    "id": "english_2"
+  },
+  {
+    "question": "house",
+    "answer": "дом",
+    "category": "#english",
+    "id": "english_3"
+  },
+  {
+    "question": "book",
+    "answer": "книга",
+    "category": "#english",
+    "id": "english_4"
+  },
+  {
+    "question": "tree",
+    "answer": "дерево",
+    "category": "#english",
+    "id": "english_5"
+  },
+  {
+    "question": "sun",
+    "answer": "солнце",
+    "category": "#english",
+    "id": "english_6"
+  },
+  {
+    "question": "water",
+    "answer": "вода",
+    "category": "#english",
+    "id": "english_7"
+  },
+  {
+    "question": "food",
+    "answer": "еда",
+    "category": "#english",
+    "id": "english_8"
+  },
+  {
+    "question": "car",
+    "answer": "машина",
+    "category": "#english",
+    "id": "english_9"
+  },
+  {
+    "question": "amigo",
+    "answer": "друг",
+    "category": "#spanish",
+    "id": "spanish_0"
+  },
+  {
+    "question": "perro",
+    "answer": "собака",
+    "category": "#spanish",
+    "id": "spanish_1"
+  },
+  {
+    "question": "gato",
+    "answer": "кошка",
+    "category": "#spanish",
+    "id": "spanish_2"
+  },
+  {
+    "question": "casa",
+    "answer": "дом",
+    "category": "#spanish",
+    "id": "spanish_3"
+  },
+  {
+    "question": "libro",
+    "answer": "книга",
+    "category": "#spanish",
+    "id": "spanish_4"
+  },
+  {
+    "question": "árbol",
+    "answer": "дерево",
+    "category": "#spanish",
+    "id": "spanish_5"
+  },
+  {
+    "question": "sol",
+    "answer": "солнце",
+    "category": "#spanish",
+    "id": "spanish_6"
+  },
+  {
+    "question": "agua",
+    "answer": "вода",
+    "category": "#spanish",
+    "id": "spanish_7"
+  },
+  {
+    "question": "comida",
+    "answer": "еда",
+    "category": "#spanish",
+    "id": "spanish_8"
+  },
+  {
+    "question": "coche",
+    "answer": "машина",
+    "category": "#spanish",
+    "id": "spanish_9"
+  },
+  {
+    "question": "ami",
+    "answer": "друг",
+    "category": "#french",
+    "id": "french_0"
+  },
+  {
+    "question": "chien",
+    "answer": "собака",
+    "category": "#french",
+    "id": "french_1"
+  },
+  {
+    "question": "chat",
+    "answer": "кошка",
+    "category": "#french",
+    "id": "french_2"
+  },
+  {
+    "question": "maison",
+    "answer": "дом",
+    "category": "#french",
+    "id": "french_3"
+  },
+  {
+    "question": "livre",
+    "answer": "книга",
+    "category": "#french",
+    "id": "french_4"
+  },
+  {
+    "question": "arbre",
+    "answer": "дерево",
+    "category": "#french",
+    "id": "french_5"
+  },
+  {
+    "question": "soleil",
+    "answer": "солнце",
+    "category": "#french",
+    "id": "french_6"
+  },
+  {
+    "question": "eau",
+    "answer": "вода",
+    "category": "#french",
+    "id": "french_7"
+  },
+  {
+    "question": "nourriture",
+    "answer": "еда",
+    "category": "#french",
+    "id": "french_8"
+  },
+  {
+    "question": "voiture",
+    "answer": "машина",
+    "category": "#french",
+    "id": "french_9"
+  }
+]

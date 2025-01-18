@@ -35,11 +35,10 @@ const CardsCollection = () => {
         const matchedCategory = card.category
           .toLocaleLowerCase()
           .includes(searchValue);
-
         return matchedQuestion || matchedAnswer || matchedCategory;
       })
     );
-  }, [searchValue]);
+  }, [searchValue, cards]);
 
   const exportCards = () => {
     const cardsForExport = cards.filter((card) =>
@@ -58,10 +57,10 @@ const CardsCollection = () => {
   };
 
   const handleSelectAll = () => {
-    if (checkedCards.length === cards.length) {
+    if (checkedCards.length === filteredCards.length) {
       resetСheckedCards();
     } else {
-      setСheckedCards([...cards.map((card) => card.id)]);
+      setСheckedCards([...filteredCards.map((card) => card.id)]);
     }
   };
 
@@ -102,6 +101,9 @@ const CardsCollection = () => {
           />
         </div>
         <div className="collection-header-right-container">
+          <div>
+            {checkedCards.length}/{filteredCards.length} selected
+          </div>
           <input
             type="search"
             placeholder="Search cards..."
