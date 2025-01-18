@@ -98,3 +98,20 @@ textarea::placeholder,
 input::placeholder {
   color: var(--text-secondary);
 }
+
+input[type="file"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 0.5px solid transparent;
+  background-color: var(--placeholder-bg);
+  color: var(--text-primary);
+}

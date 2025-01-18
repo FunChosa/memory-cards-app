@@ -49,6 +49,21 @@ const ImportCardsModal = () => {
         },
     ]`;
 
+  const hangleImportFile = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const data = JSON.parse(e.target.result);
+        const validatedCards = validateAndPrepareCards(data);
+        setJsonInput(JSON.stringify(validatedCards, null, 2));
+      };
+      reader.readAsText(file);
+    }
+    e.target.value = null;
+    return false;
+  };
+
   return (
     <Modal
       isOpen={isImportModalOpen}
@@ -69,6 +84,7 @@ const ImportCardsModal = () => {
           placeholder={placeholderText}
           rows={15}
         />
+        <input type="file" accept=".json" onChange={hangleImportFile} />
         {error && <p className="modal-error-msg">{error}</p>}
         <button className="modal-save-btn" onClick={handleImport}>
           Save

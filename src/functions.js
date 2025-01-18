@@ -26,10 +26,11 @@ export const validateAndPrepareCards = (newCards) => {
       return true;
     })
     .map((card) => {
+      const { id, ...cardData } = card;
       return {
         id: uuidv4(),
-        category: card.category || "no_category",
-        ...card,
+        category: cardData.category || "no_category",
+        ...cardData,
       };
     });
 };

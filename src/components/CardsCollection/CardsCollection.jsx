@@ -76,10 +76,15 @@ const CardsCollection = () => {
             className={"collection-action-btn"}
           />
           <Button
-            title="Add via JSON"
+            title="Import JSON"
             icon={<LuFileJson2 />}
             onClick={openImportModal}
             className={"collection-action-btn"}
+          />
+          <Button
+            title="Select All"
+            className={"collection-action-btn"}
+            onClick={handleSelectAll}
           />
           <Button
             title="Export JSON"
@@ -94,11 +99,6 @@ const CardsCollection = () => {
             className={"collection-action-btn"}
             disabled={checkedCards.length === 0}
             title="Delete"
-          />
-          <Button
-            title="Select All"
-            className={"collection-action-btn"}
-            onClick={handleSelectAll}
           />
         </div>
         <div className="collection-header-right-container">
