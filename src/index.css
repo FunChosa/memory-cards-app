@@ -1,17 +1,21 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
 :root {
-  font-family: "Poppins", sans-serif;
-  --text-primary: white;
+  --text-primary: #ffffff;
+  --text-secondary: #5e5e5e;
+  --text-error: rgb(106, 62, 3, 0.8);
   --accent: #172554;
-  --placeholder-text: rgba(255, 255, 255, 0.3);
+  --primary: #1c1c1c;
   --placeholder-bg: rgba(0, 0, 0, 0.5);
+  --modal-bg: rgba(51, 157, 144, 0.1);
+  --overlay-bg: rgba(0, 0, 0, 0.7);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {

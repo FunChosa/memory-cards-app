@@ -17,8 +17,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border: 0.5px solid rgba(211, 211, 211, 0.05);
   height: 70px;
+  background-color: #121d3f;
 }
 
 .collection-header-left-container {
@@ -43,6 +43,38 @@
   padding: 1rem;
 }
 
+.collection-action-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  color: var(--text-primary);
+  background-color: var(--primary);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  height: 36px;
+}
+
+.collection-action-btn:hover {
+  background-color: var(--text-primary);
+  color: var(--primary);
+}
+
+.collection-action-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.collection-action-btn:disabled:hover {
+  background-color: var(--primary);
+  color: var(--text-primary);
+}
+
 input[type="search"] {
   padding: 0.5rem;
   border-radius: 5px;
@@ -52,8 +84,7 @@ input[type="search"] {
 }
 
 input[type="search"]::placeholder {
-  font-family: "Poppins", sans-serif;
-  color: var(--placeholder-text);
+  color: var(--text-secondary);
 }
 
 input[type="search"]:focus {
@@ -72,8 +103,9 @@ input[type="search"]:focus {
   gap: 1rem;
   border: 1px solid transparent;
   padding: 1rem;
-  background-color: #1c1c1c;
+  background-color: var(--primary);
   font-weight: 600;
+  position: relative;
 }
 
 .collection-card-question {
@@ -84,6 +116,34 @@ input[type="search"]:focus {
   -webkit-box-orient: vertical;
 }
 
+.collection-card-checkbox {
+  position: relative;
+  cursor: pointer;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #5e5e5e;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+  padding-left: 2px;
+}
+
+.collection-card-checkbox:checked {
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.collection-card-checkbox:checked::after {
+  content: "✔";
+  color: #000;
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.collection-card-top,
 .collection-card-bottom {
   display: flex;
   flex-direction: row;
@@ -102,7 +162,7 @@ input[type="search"]:focus {
 }
 
 .collection-card-category {
-  color: #5e5e5e;
+  color: var(--text-secondary);
   font-size: 14px;
   max-width: 20ch;
   white-space: nowrap;
@@ -114,7 +174,7 @@ input[type="search"]:focus {
 .edit-btn {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  color: #5e5e5e;
+  color: var(--text-secondary);
   font-size: 16px;
 }
 

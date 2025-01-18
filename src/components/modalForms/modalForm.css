@@ -2,12 +2,12 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 3.5rem;
-  max-height: 70%;
+  max-height: 85%;
   width: 600px;
   overflow-y: auto;
   border-radius: 0.375rem;
   padding: 1.25rem;
-  background-color: #339d901f;
+  background-color: var(--modal-bg);
   backdrop-filter: blur(20px);
 }
 
@@ -19,6 +19,9 @@
 }
 
 .modal-save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50px;
   padding: 0.5rem 2rem;
   border: none;
@@ -31,8 +34,8 @@
 }
 
 .modal-save-btn:hover {
-  background-color: #000000;
-  color: var(--text-primary);
+  background-color: #ffffff;
+  color: var(--text-error);
 }
 
 .modal-close-btn {
@@ -43,7 +46,7 @@
 }
 
 .modal-error-msg {
-  color: #6a3e03;
+  color: var(--text-error);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -62,10 +65,9 @@
   border-radius: 0.25rem;
   color: var(--text-primary);
   font-size: 1rem;
-  font-family: "Poppins", sans-serif;
 }
 
-textarea::placeholder {
-  color: var(--placeholder-text);
-  font-family: "Poppins", sans-serif;
+textarea::placeholder,
+input::placeholder {
+  color: var(--text-secondary);
 }

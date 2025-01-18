@@ -65,7 +65,11 @@ const CardsSlider = () => {
       {currentCards.length > 0 ? (
         <div className="card-slider">
           <div className="card-slider-settings-container">
-            <Button icon={<LuShuffle />} onClick={handleShuffle} />
+            <Button
+              icon={<LuShuffle />}
+              onClick={handleShuffle}
+              className="card-slider-shuffle-btn"
+            />
             {categories.map((category) => (
               <Button
                 key={category}
@@ -78,9 +82,8 @@ const CardsSlider = () => {
                   )
                 }
                 className={
-                  filterCategory.includes(category)
-                    ? "card-slider-active-filter"
-                    : ""
+                  "card-slider-filter-btn" +
+                  (filterCategory.includes(category) ? "-active" : "")
                 }
               />
             ))}
@@ -92,11 +95,19 @@ const CardsSlider = () => {
             category={currentCards[currentIndex].category}
           />
           <div className="card-slider-navigation-panel">
-            <Button icon={<FaAngleLeft />} onClick={handlePrevious} />
+            <Button
+              icon={<FaAngleLeft />}
+              onClick={handlePrevious}
+              className="card-slider-navigation-btn"
+            />
             <p className="card-slider-current-index">
               {currentIndex + 1}/{currentCards.length}
             </p>
-            <Button icon={<FaAngleRight />} onClick={handleNext} />
+            <Button
+              icon={<FaAngleRight />}
+              onClick={handleNext}
+              className="card-slider-navigation-btn"
+            />
           </div>
         </div>
       ) : (

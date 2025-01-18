@@ -77,7 +77,7 @@ const EditCardModal = () => {
       isOpen={isEditModalOpen}
       className="modal-container"
       style={{
-        overlay: { backgroundColor: "rgba(0, 0, 0, 0.7)" },
+        overlay: { backgroundColor: "var(--overlay-bg)" },
       }}
       appElement={document.getElementById("root")}
       shouldCloseOnOverlayClick={false}

@@ -17,7 +17,9 @@ const SliderCard = ({ question, answer, id, category }) => {
   return (
     <div
       className="card-container"
-      style={{ backgroundColor: isFlipped ? "#1c1c1c" : "var(--accent)" }}
+      style={{
+        backgroundColor: isFlipped ? "var(--primary)" : "var(--accent)",
+      }}
       onClick={handleFlip}
     >
       <p className="card-content">{isFlipped ? answer : question}</p>

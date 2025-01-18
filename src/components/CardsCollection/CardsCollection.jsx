@@ -3,6 +3,7 @@ import NavigationButton from "../utils/NavigationButton";
 import { FaAngleUp } from "react-icons/fa6";
 import { IoAdd } from "react-icons/io5";
 import { LuFileJson2 } from "react-icons/lu";
+import { MdDeleteOutline } from "react-icons/md";
 import { CiExport } from "react-icons/ci";
 import { handleExportCards } from "../../functions";
 import useStore from "../../store";
@@ -14,6 +15,10 @@ const CardsCollection = () => {
   const cards = useStore((state) => state.cards);
   const openAddModal = useStore((state) => state.openAddModal);
   const openImportModal = useStore((state) => state.openImportModal);
+  const deletedCards = useStore((state) => state.deletedCards);
+  const deleteCard = useStore((state) => state.deleteCard);
+  const resetDeletedCards = useStore((state) => state.resetDeletedCards);
+  const setDeletedCards = useStore((state) => state.setDeletedCards);
   const [searchValue, setSearchValue] = useState("");
   const [filteredCards, setFilteredCards] = useState(cards);
 
@@ -39,20 +44,56 @@ const CardsCollection = () => {
     handleExportCards({ cards });
   };
 
+  const handleBulkDelete = () => {
+    if (deletedCards.length > 0) {
+      deletedCards.forEach((element) => {
+        deleteCard(element);
+      });
+    }
+    resetDeletedCards();
+  };
+
+  const handleSelectAll = () => {
+    if (deletedCards.length === cards.length) {
+      resetDeletedCards();
+    } else {
+      setDeletedCards([...cards.map((card) => card.id)]);
+    }
+  };
+
   return (
     <div className="collection-container" id="cards-collection">
       <div className="collection-header-container">
         <div className="collection-header-left-container">
-          <Button title="New Card" icon={<IoAdd />} onClick={openAddModal} />
+          <Button
+            title="New Card"
+            icon={<IoAdd />}
+            onClick={openAddModal}
+            className={"collection-action-btn"}
+          />
           <Button
             title="Add via JSON"
             icon={<LuFileJson2 />}
             onClick={openImportModal}
+            className={"collection-action-btn"}
           />
           <Button
             title="Export JSON"
             icon={<CiExport />}
             onClick={exportCards}
+            className={"collection-action-btn"}
+          />
+          <Button
+            icon={<MdDeleteOutline />}
+            onClick={handleBulkDelete}
+            className={"collection-action-btn"}
+            disabled={deletedCards.length === 0}
+            title="Delete"
+          />
+          <Button
+            title="Select All"
+            className={"collection-action-btn"}
+            onClick={handleSelectAll}
           />
         </div>
         <div className="collection-header-right-container">

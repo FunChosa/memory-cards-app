@@ -59,6 +59,7 @@ const useStore = create((set) => ({
   currentCardIndex: 0,
   filterCategory: [],
   categories: [],
+  deletedCards: [],
 
   addCard: (newCard) => set((state) => ({ cards: [...state.cards, newCard] })),
   deleteCard: (cardId) =>
@@ -90,6 +91,7 @@ const useStore = create((set) => ({
   setCurrentCardIndex: (index) => set({ currentCardIndex: index }),
   setFilterCategory: (newFilter) => set({ filterCategory: newFilter }),
   setCategories: (newCategories) => set({ categories: newCategories }),
+  setDeletedCards: (newDeletedCards) => set({ deletedCards: newDeletedCards }),
 
   resetJsonInput: () => set({ jsonInput: "" }),
   resetNewCard: () =>
@@ -109,6 +111,7 @@ const useStore = create((set) => ({
         category: "no_category",
       },
     }),
+  resetDeletedCards: () => set({ deletedCards: [] }),
 }));
 
 export default useStore;
