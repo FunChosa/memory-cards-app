@@ -60,6 +60,7 @@ const useStore = create((set) => ({
   filterCategory: [],
   categories: [],
   deletedCards: [],
+  isDarkMode: true,
 
   addCard: (newCard) => set((state) => ({ cards: [...state.cards, newCard] })),
   deleteCard: (cardId) =>
@@ -92,6 +93,7 @@ const useStore = create((set) => ({
   setFilterCategory: (newFilter) => set({ filterCategory: newFilter }),
   setCategories: (newCategories) => set({ categories: newCategories }),
   setDeletedCards: (newDeletedCards) => set({ deletedCards: newDeletedCards }),
+  setIsDarkMode: (newIsDarkMode) => set({ isDarkMode: newIsDarkMode }),
 
   resetJsonInput: () => set({ jsonInput: "" }),
   resetNewCard: () =>

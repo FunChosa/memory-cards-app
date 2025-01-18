@@ -7,8 +7,21 @@
   --accent: #172554;
   --primary: #1c1c1c;
   --placeholder-bg: rgba(0, 0, 0, 0.5);
-  --modal-bg: rgba(51, 157, 144, 0.1);
+  --modal-bg: rgb(3 166 231 / 25%);
+  --slider-bg: #000;
   --overlay-bg: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="light"] {
+  --text-primary: #333333;
+  --text-secondary: #808080;
+  --text-error: #e74c3c;
+  --accent: #5dade2;
+  --primary: #f5f5f5;
+  --placeholder-bg: rgba(0, 0, 0, 0.1);
+  --modal-bg: rgba(51, 115, 157, 0.388);
+  --slider-bg: #fff;
+  --overlay-bg: rgba(0, 0, 0, 0.3);
 }
 
 * {
