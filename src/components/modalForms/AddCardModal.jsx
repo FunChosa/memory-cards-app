@@ -1,5 +1,6 @@
 import useStore from "../../store";
 import { IoMdClose } from "react-icons/io";
+import { categoryPrefix } from "../../functions";
 import { v4 as uuidv4 } from "uuid";
 import Modal from "react-modal";
 import Button from "../utils/Button";
@@ -55,7 +56,7 @@ const AddCardModal = () => {
     addCard({
       question: newCard.question.trim(),
       answer: newCard.answer.trim(),
-      category: newCard.category.trim(),
+      category: categoryPrefix(newCard.category.trim()),
       id: uuidv4(),
     });
 
@@ -101,7 +102,7 @@ const AddCardModal = () => {
         <p>Category:</p>
         <input
           type="text"
-          placeholder="Math"
+          placeholder="#Math"
           className="modal-category-input"
           onChange={handleCategoryChange}
         />

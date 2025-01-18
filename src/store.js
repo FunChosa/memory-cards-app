@@ -1,54 +1,52 @@
 import { create } from "zustand";
 
+const EMPTY_CARD = {
+  question: "",
+  answer: "",
+  category: "#no_category",
+};
+
 const useStore = create((set) => ({
   cards: [
     {
       id: "1",
       question: "Who is Luke Skywalker's father?",
       answer: "Darth Vader",
-      category: "Star Wars",
+      category: "#Star Wars",
     },
     {
       id: "2",
       question: "Who is the main villain in 'Avengers: Infinity War'?",
       answer: "Thanos",
-      category: "Avengers",
+      category: "#Avengers",
     },
     {
       id: "3",
       question: "Who is the leader of the Jedi?",
       answer: "Yoda",
-      category: "Star Wars",
+      category: "#Star Wars",
     },
     {
       id: "4",
       question: "What is the capital of France?",
       answer: "Paris",
-      category: "no_category",
+      category: "#no_category",
     },
     {
       id: "5",
       question: "What is the highest mountain in the world?",
       answer: "Mount Everest",
-      category: "no_category",
+      category: "#no_category",
     },
     {
       id: "6",
       question: "What is the chemical symbol for water?",
       answer: "H2O",
-      category: "no_category",
+      category: "#no_category",
     },
   ],
-  newCard: {
-    question: "",
-    answer: "",
-    category: "no_category",
-  },
-  editableCard: {
-    question: "",
-    answer: "",
-    category: "no_category",
-  },
+  newCard: EMPTY_CARD,
+  editableCard: EMPTY_CARD,
 
   isAddModalOpen: false,
   isEditModalOpen: false,
@@ -98,20 +96,12 @@ const useStore = create((set) => ({
   resetJsonInput: () => set({ jsonInput: "" }),
   resetNewCard: () =>
     set({
-      newCard: {
-        question: "",
-        answer: "",
-        category: "no_category",
-      },
+      newCard: EMPTY_CARD,
     }),
   resetError: () => set({ error: null }),
   resetEditableCard: () =>
     set({
-      editableCard: {
-        question: "",
-        answer: "",
-        category: "no_category",
-      },
+      editableCard: EMPTY_CARD,
     }),
   resetСheckedCards: () => set({ checkedCards: [] }),
 }));

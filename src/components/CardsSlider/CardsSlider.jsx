@@ -85,7 +85,7 @@ const CardsSlider = () => {
             {categories.map((category) => (
               <Button
                 key={category}
-                title={"#" + category}
+                title={category}
                 onClick={() =>
                   setFilterCategory(
                     filterCategory.includes(category)

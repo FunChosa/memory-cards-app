@@ -47,3 +47,11 @@ export const handleExportCards = (cards) => {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 };
+
+export const categoryPrefix = (category) => {
+  if (category.length > 0 && category[0] !== "#") {
+    return "#" + category;
+  } else {
+    return category;
+  }
+};

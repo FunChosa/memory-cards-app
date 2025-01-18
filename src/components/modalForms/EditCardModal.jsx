@@ -1,6 +1,7 @@
 import useStore from "../../store";
 import { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { categoryPrefix } from "../../functions";
 import Modal from "react-modal";
 import "./modalForm.css";
 
@@ -58,7 +59,7 @@ const EditCardModal = () => {
       ...editableCard,
       question: question.trim(),
       answer: answer.trim(),
-      category: category.trim(),
+      category: categoryPrefix(category.trim()),
     });
 
     resetEditableCard();
@@ -109,7 +110,7 @@ const EditCardModal = () => {
         <p>Category:</p>
         <input
           type="text"
-          placeholder="Math"
+          placeholder="#Math"
           className="modal-category-input"
           onChange={handleCategoryChange}
           value={category}
