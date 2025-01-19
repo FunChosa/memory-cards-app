@@ -20,8 +20,9 @@
 
 .modal-btn-container {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .modal-save-btn {
@@ -40,11 +41,6 @@
   height: 36px;
 }
 
-.modal-save-btn:hover {
-  background-color: #ffffff;
-  color: var(--text-error);
-}
-
 .modal-delete-btn {
   display: flex;
   align-items: center;
@@ -52,7 +48,8 @@
   padding: 1rem;
   border: none;
   border-radius: 5px;
-  background-color: #1c1c1c;
+  background-color: var(--placeholder-bg);
+  backdrop-filter: blur(20px);
   color: #fff;
   cursor: pointer;
   font-weight: 600;
@@ -60,9 +57,10 @@
   height: 36px;
 }
 
+.modal-save-btn:hover,
 .modal-delete-btn:hover {
-  background-color: #ae0202;
-  color: #000;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .modal-close-btn {

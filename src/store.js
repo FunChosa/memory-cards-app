@@ -18,6 +18,7 @@ const useStore = create(
       isAddModalOpen: false,
       isEditModalOpen: false,
       isImportModalOpen: false,
+      isDeleteModalOpen: false,
       isFlipped: false,
       error: null,
       jsonInput: "",
@@ -48,6 +49,9 @@ const useStore = create(
 
       openImportModal: () => set({ isImportModalOpen: true }),
       closeImportModal: () => set({ isImportModalOpen: false }),
+
+      openDeleteModal: () => set({ isDeleteModalOpen: true }),
+      closeDeleteModal: () => set({ isDeleteModalOpen: false }),
 
       setCards: (newCards) => set({ cards: newCards }),
       setError: (newError) => set({ error: newError }),

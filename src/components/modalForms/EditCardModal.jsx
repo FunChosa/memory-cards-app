@@ -10,8 +10,6 @@ const EditCardModal = () => {
   const isEditModalOpen = useStore((state) => state.isEditModalOpen);
   const editCard = useStore((state) => state.editCard);
   const closeEditModal = useStore((state) => state.closeEditModal);
-  const checkedCards = useStore((state) => state.checkedCards);
-  const setСheckedCards = useStore((state) => state.setСheckedCards);
 
   const error = useStore((state) => state.error);
   const setError = useStore((state) => state.setError);
@@ -19,7 +17,7 @@ const EditCardModal = () => {
 
   const editableCard = useStore((state) => state.editableCard);
   const resetEditableCard = useStore((state) => state.resetEditableCard);
-  const deleteCard = useStore((state) => state.deleteCard);
+  const openDeleteModal = useStore((state) => state.openDeleteModal);
 
   const [question, setQuestion] = useState(editableCard.question);
   const [answer, setAnswer] = useState(editableCard.answer);
@@ -43,12 +41,8 @@ const EditCardModal = () => {
     closeEditModal();
   };
 
-  const handleDeleteCard = () => {
-    deleteCard(editableCard.id);
-    setСheckedCards(checkedCards.filter((id) => id !== editableCard.id));
-    resetEditableCard();
-    resetError();
-    closeEditModal();
+  const handleDeletePopup = () => {
+    openDeleteModal();
   };
 
   const submitCard = () => {
@@ -130,14 +124,14 @@ const EditCardModal = () => {
         {error && <p className="modal-error-msg">{error}</p>}
         <div className="modal-btn-container">
           <Button
+            title="Delete card"
+            onClick={handleDeletePopup}
+            className="modal-delete-btn"
+          />
+          <Button
             title="Save"
             onClick={submitCard}
             className="modal-save-btn"
-          />
-          <Button
-            title="Delete card"
-            onClick={handleDeleteCard}
-            className="modal-delete-btn"
           />
         </div>
       </div>

@@ -6,7 +6,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { LuShuffle } from "react-icons/lu";
 import { FaAngleDown } from "react-icons/fa6";
 import { HiMiniArrowPath } from "react-icons/hi2";
-import { CiLight, CiDark } from "react-icons/ci";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import Button from "../utils/Button";
 import "./CardsSlider.css";
 import NoData from "../utils/NoData";
@@ -63,15 +63,15 @@ const CardsSlider = () => {
           </h2>
         </div>
         <div className="card-slider-header-right-container">
+          <Button
+            icon={isDarkMode ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="card-slider-toggle-btn"
+          />
           <NavigationButton
             title="View card collection"
             to="cards-collection"
             icon={<FaAngleDown />}
-          />
-          <Button
-            icon={isDarkMode ? <CiLight /> : <CiDark />}
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className="card-slider-toggle-btn"
           />
         </div>
       </div>

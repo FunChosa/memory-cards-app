@@ -107,7 +107,14 @@ const AddCardModal = () => {
           onChange={handleCategoryChange}
         />
         {error && <p className="modal-error-msg">{error}</p>}
-        <Button title="Save" className="modal-save-btn" onClick={submitCard} />
+        <div className="modal-btn-container">
+          <div></div>
+          <Button
+            title="Save"
+            className="modal-save-btn"
+            onClick={submitCard}
+          />
+        </div>
       </div>
     </Modal>
   );
