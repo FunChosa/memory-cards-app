@@ -87,7 +87,7 @@ const ImportCardsModal = () => {
         <input type="file" accept=".json" onChange={hangleImportFile} />
         {error && <p className="modal-error-msg">{error}</p>}
         <button className="modal-save-btn" onClick={handleImport}>
-          Save
+          Add
         </button>
       </div>
     </Modal>

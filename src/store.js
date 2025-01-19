@@ -77,6 +77,10 @@ const useStore = create(
     {
       name: "memory-cards",
       getStorage: () => localStorage,
+      partialize: (state) => ({
+        cards: state.cards,
+        isDarkMode: state.isDarkMode,
+      }),
     }
   )
 );

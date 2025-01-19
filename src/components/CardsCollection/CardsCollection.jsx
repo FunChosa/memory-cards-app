@@ -102,7 +102,7 @@ const CardsCollection = () => {
         </div>
         <div className="collection-header-right-container">
           <div>
-            {checkedCards.length}/{filteredCards.length} selected
+            {checkedCards.length}/{cards.length} selected
           </div>
           <input
             type="search"
