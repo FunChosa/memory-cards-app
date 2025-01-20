@@ -80,7 +80,7 @@
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 1rem;
   background-color: var(--primary);
   color: var(--text-primary);
   cursor: pointer;
@@ -97,7 +97,7 @@
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 1rem;
   background-color: var(--accent);
   color: var(--text-primary);
   cursor: pointer;
@@ -120,7 +120,7 @@
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   position: relative;
