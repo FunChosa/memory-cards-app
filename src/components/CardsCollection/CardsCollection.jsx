@@ -81,11 +81,6 @@ const CardsCollection = () => {
             className={"collection-action-btn"}
           />
           <Button
-            title="Select All"
-            className={"collection-action-btn"}
-            onClick={handleSelectAll}
-          />
-          <Button
             title="Export JSON"
             icon={<CiExport />}
             onClick={exportCards}
@@ -104,6 +99,11 @@ const CardsCollection = () => {
           <div>
             {checkedCards.length}/{cards.length} selected
           </div>
+          <Button
+            title="Select All"
+            className={"collection-action-btn"}
+            onClick={handleSelectAll}
+          />
           <input
             type="search"
             placeholder="Search cards..."

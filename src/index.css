@@ -36,4 +36,5 @@
 body {
   background-color: black;
   color: var(--text-primary);
+  /* min-width: fit-content; */
 }
