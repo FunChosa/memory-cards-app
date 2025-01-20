@@ -1,4 +1,14 @@
-.no-data {
+.no-data-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10rem;
+}
+
+.no-data-title {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,4 +17,12 @@
   font-size: 1.5rem;
   background-color: transparent;
   color: var(--text-primary);
+}
+
+.no-data-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }

@@ -5,19 +5,18 @@ import { IoMdClose } from "react-icons/io";
 import "./modalForm.css";
 
 const ImportCardsModal = () => {
-  const jsonInput = useStore((state) => state.jsonInput);
-  const setJsonInput = useStore((state) => state.setJsonInput);
-  const resetJsonInput = useStore((state) => state.resetJsonInput);
-
-  const error = useStore((state) => state.error);
-  const setError = useStore((state) => state.setError);
-  const resetError = useStore((state) => state.resetError);
-
-  const isImportModalOpen = useStore((state) => state.isImportModalOpen);
-
-  const cards = useStore((state) => state.cards);
-  const closeImportModal = useStore((state) => state.closeImportModal);
-  const setCards = useStore((state) => state.setCards);
+  const {
+    jsonInput,
+    setJsonInput,
+    resetJsonInput,
+    error,
+    setError,
+    resetError,
+    isImportModalOpen,
+    cards,
+    closeImportModal,
+    setCards,
+  } = useStore((state) => state);
 
   const handleClose = () => {
     resetJsonInput();

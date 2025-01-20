@@ -3,10 +3,8 @@ import { CiEdit } from "react-icons/ci";
 import "./CardsCollection.css";
 
 const CollectionCard = ({ card }) => {
-  const checkedCards = useStore((state) => state.checkedCards);
-  const setEditableCard = useStore((state) => state.setEditableCard);
-  const openEditModal = useStore((state) => state.openEditModal);
-  const setСheckedCards = useStore((state) => state.setСheckedCards);
+  const { checkedCards, setEditableCard, openEditModal, setСheckedCards } =
+    useStore();
 
   const handleEditCard = () => {
     setEditableCard(card);

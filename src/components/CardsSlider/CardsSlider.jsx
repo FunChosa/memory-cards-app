@@ -12,18 +12,18 @@ import "./CardsSlider.css";
 import NoData from "../utils/NoData";
 
 const CardsSlider = () => {
-  const cards = useStore((state) => state.cards);
-  const isDarkMode = useStore((state) => state.isDarkMode);
-  const setIsDarkMode = useStore((state) => state.setIsDarkMode);
+  const {
+    cards,
+    isDarkMode,
+    setIsDarkMode,
+    filterCategory,
+    setFilterCategory,
+    categories,
+    setCategories,
+  } = useStore((state) => state);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentCards, setCurrentCards] = useState(cards);
-
-  const filterCategory = useStore((state) => state.filterCategory);
-  const setFilterCategory = useStore((state) => state.setFilterCategory);
-
-  const categories = useStore((state) => state.categories);
-  const setCategories = useStore((state) => state.setCategories);
 
   useEffect(() => {
     setCategories(Array.from(new Set(cards.map((card) => card.category))));

@@ -7,18 +7,17 @@ import Button from "../utils/Button";
 import "./modalForm.css";
 
 const AddCardModal = () => {
-  const isAddModalOpen = useStore((state) => state.isAddModalOpen);
-  const addCard = useStore((state) => state.addCard);
-  const closeAddModal = useStore((state) => state.closeAddModal);
-
-  const error = useStore((state) => state.error);
-  const setError = useStore((state) => state.setError);
-  const resetError = useStore((state) => state.resetError);
-
-  const newCard = useStore((state) => state.newCard);
-  const setNewCard = useStore((state) => state.setNewCard);
-
-  const resetNewCard = useStore((state) => state.resetNewCard);
+  const {
+    isAddModalOpen,
+    addCard,
+    closeAddModal,
+    error,
+    setError,
+    resetError,
+    newCard,
+    setNewCard,
+    resetNewCard,
+  } = useStore((state) => state);
 
   const handleQuestionChange = (event) => {
     setNewCard({ ...newCard, question: event.target.value });

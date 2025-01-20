@@ -4,16 +4,17 @@ import useStore from "../../store";
 import Button from "../utils/Button";
 
 const DeleteConfirmModal = () => {
-  const isDeleteModalOpen = useStore((state) => state.isDeleteModalOpen);
-  const closeDeleteModal = useStore((state) => state.closeDeleteModal);
-
-  const closeEditModal = useStore((state) => state.closeEditModal);
-  const deleteCard = useStore((state) => state.deleteCard);
-  const checkedCards = useStore((state) => state.checkedCards);
-  const setСheckedCards = useStore((state) => state.setСheckedCards);
-  const resetEditableCard = useStore((state) => state.resetEditableCard);
-  const resetError = useStore((state) => state.resetError);
-  const editableCard = useStore((state) => state.editableCard);
+  const {
+    isDeleteModalOpen,
+    closeDeleteModal,
+    closeEditModal,
+    deleteCard,
+    checkedCards,
+    setСheckedCards,
+    resetEditableCard,
+    resetError,
+    editableCard,
+  } = useStore((state) => state);
 
   const handleDeleteCard = () => {
     deleteCard(editableCard.id);

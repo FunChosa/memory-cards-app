@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import "./CardsSlider.css";
 
 const SliderCard = ({ question, answer, id, category }) => {
-  const isFlipped = useStore((state) => state.isFlipped);
-  const setIsFlipped = useStore((state) => state.setIsFlipped);
+  const { isFlipped, setIsFlipped } = useStore((state) => state);
 
   useEffect(() => {
     setIsFlipped(false);

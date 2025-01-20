@@ -8,18 +8,20 @@ import { CiExport } from "react-icons/ci";
 import { handleExportCards } from "../../functions";
 import useStore from "../../store";
 import CollectionCard from "./CollectionCard";
-import NoData from "../utils/NoData";
 import Button from "../utils/Button";
 import "./CardsCollection.css";
 
 const CardsCollection = () => {
-  const cards = useStore((state) => state.cards);
-  const openAddModal = useStore((state) => state.openAddModal);
-  const openImportModal = useStore((state) => state.openImportModal);
-  const checkedCards = useStore((state) => state.checkedCards);
-  const deleteCard = useStore((state) => state.deleteCard);
-  const resetСheckedCards = useStore((state) => state.resetСheckedCards);
-  const setСheckedCards = useStore((state) => state.setСheckedCards);
+  const {
+    cards,
+    openAddModal,
+    openImportModal,
+    checkedCards,
+    deleteCard,
+    resetСheckedCards,
+    setСheckedCards,
+  } = useStore((state) => state);
+
   const [searchValue, setSearchValue] = useState("");
   const [filteredCards, setFilteredCards] = useState(cards);
 
@@ -128,7 +130,7 @@ const CardsCollection = () => {
               ))}
         </div>
       ) : (
-        <NoData />
+        <div className="no-data-title">No cards found</div>
       )}
     </div>
   );

@@ -7,17 +7,17 @@ import Modal from "react-modal";
 import "./modalForm.css";
 
 const EditCardModal = () => {
-  const isEditModalOpen = useStore((state) => state.isEditModalOpen);
-  const editCard = useStore((state) => state.editCard);
-  const closeEditModal = useStore((state) => state.closeEditModal);
-
-  const error = useStore((state) => state.error);
-  const setError = useStore((state) => state.setError);
-  const resetError = useStore((state) => state.resetError);
-
-  const editableCard = useStore((state) => state.editableCard);
-  const resetEditableCard = useStore((state) => state.resetEditableCard);
-  const openDeleteModal = useStore((state) => state.openDeleteModal);
+  const {
+    isEditModalOpen,
+    editCard,
+    closeEditModal,
+    error,
+    setError,
+    resetError,
+    editableCard,
+    resetEditableCard,
+    openDeleteModal,
+  } = useStore((state) => state);
 
   const [question, setQuestion] = useState(editableCard.question);
   const [answer, setAnswer] = useState(editableCard.answer);

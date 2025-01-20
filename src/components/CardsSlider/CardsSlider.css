@@ -15,6 +15,7 @@
   background-color: var(--slider-bg);
   align-items: center;
   flex-direction: column;
+  min-width: 380px;
 }
 
 .card-slider-navigation-panel {
@@ -135,7 +136,7 @@
   -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   color: var(--text-primary);
-  margin: 2rem 0rem
+  margin: 2rem 0rem;
 }
 
 ::-webkit-scrollbar {
